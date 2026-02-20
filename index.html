@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Esra Technologies</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+    body{
+        height:2000px;
+    }
+
+    /* Floating Container */
+    .help-float {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        z-index: 9999;
+    }
+
+    /* Button Style */
+    .help-btn {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 18px;
+        border-radius: 50px;
+        font-weight: 500;
+        animation: pulse 2s infinite;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .help-text {
+        line-height: 1.2;
+        text-align: left;
+    }
+
+    .robot-icon {
+        font-size: 28px;
+    }
+
+    /* Pulse Animation */
+    @keyframes pulse {
+        0% { box-shadow: 0 0 0 0 rgba(13,110,253, 0.5); }
+        70% { box-shadow: 0 0 0 15px rgba(13,110,253, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(13,110,253, 0); }
+    }
+
+    .help-btn:hover {
+        transform: scale(1.05);
+        transition: 0.3s;
+    }
+.carousel-img {
+  height: 800px;
+  object-fit: cover;
+}
+
+.carousel-caption {
+  bottom: 0%;
+  
+}
+
+.carousel-caption h1,
+.carousel-caption p {
+  color: black;
+  text-shadow: none;
+}
+
+/* Dark indicators */
+.carousel-indicators [data-bs-target] {
+  background-color: #000;
+}
+
+
+.section-padding {
+  padding: 80px 0;
+}
+
+.contact-left {
+  background:
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url('https://picsum.photos/600/800?contact');
+  background-size: cover;
+  background-position: center;
+}
+
+.contact-left p {
+  opacity: 0.9;
+}
+
+
+
+.carousel-item{height:32rem}
+.carousel-item img{object-fit:cover;height:100%;width:100%}
+.section-padding{padding:80px 0}
+.featurette img{transition:transform 1s ease,opacity 1s}
+.featurette img.move{transform:scale(1.05);opacity:.9}
+
+<style>
+/* Smooth card hover */
+.card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.card:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+/* Floating images animation */
+.float-img {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+/* Scroll animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.8s ease;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Image zoom on hover */
+.zoom-img {
+  transition: transform 0.6s ease;
+}
+.zoom-img:hover {
+  transform: scale(1.08);
+}
+
+.project-img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  margin: auto;
+  display: block;
+  Left:100px;
+}
+</style>
+
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<div class="container">
+
+<a class="navbar-brand" href="#">Esra Technologies</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item"><a class="nav-link" href="#myCarousel">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+<li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+<li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+<li class="nav-item"><a class="nav-link" href="./projects.html">List</a></li>
+<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+
+
+</ul>
+</div>
+</div>
+</nav>
+
+<!-- CAROUSEL -->
+<div id="myCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+
+  <!-- Indicators (small circles) -->
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></button>
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1"></button>
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2"></button>
+  </div>
+
+  <div class="carousel-inner">
+
+    <div class="carousel-item active">
+      <img src="./images/main1.png" class="d-block w-100 carousel-img">     
+    </div>	 
+
+    <div class="carousel-item">
+      <img src="./images/main2.png" class="d-block w-100 carousel-img">      
+    </div>
+
+    <div class="carousel-item">
+      <img src="./images/main3.png" class="d-block w-100 carousel-img">     
+    </div>
+
+  </div>
+
+  <!-- Left & Right Controls -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+
+</div>
+
+
+<!-- PORTFOLIO -->
+<section id="portfolio" class="section-padding bg-light">
+<div class="container">
+<div class="text-center mb-5">
+<h2>Our Portfolio</h2>
+<p>Academic & Industry Projects</p>
+</div>
+
+<div class="row">
+<div class="col-md-4">
+<div class="card shadow">
+<img src="./images/image4.png" class="card-img-top zoom-img">
+<div class="card-body">
+<h5>Embedded Systems</h5>
+<p>8051, AVR, ARM, Arduino, PIC</p>
+</div>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card shadow">
+<img src="./images/image5.png" class="card-img-top zoom-img">
+<div class="card-body">
+<h5>AI & ML</h5>
+<p>Python, OpenCV, Deep Learning</p>
+</div>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card shadow">
+<img src="./images/image3.png" class="card-img-top  zoom-img">
+<div class="card-body">
+<h5>IoT</h5>
+<p>ESP32, Raspberry Pi, Cloud</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section-padding">
+<div class="container">
+<div class="row align-items-center">
+<div class="col-md-6">
+<img src="./images/.imagesimage3.png.png" class="img-fluid rounded  zoom-img">
+</div>
+<div class="col-md-6">
+<h2>About Esra Technologies</h2>
+<p>
+We provide B.Tech projects (ECE, EEE, MECH, CSE),
+school projects, study projects, workshops and
+professional training in Embedded Systems,
+Robotics, IoT and AI.
+</p>
+</div>
+</div>
+</div>
+</section>
+
+<hr class="featurette-divider">
+
+<!-- MARKETING -->
+<div id="projects" class="container marketing">
+
+<h2 class="text-center mb-5">What we do here..!</h2>
+
+<!-- ROW 1 -->
+<div class="row text-center">
+<div class="col-lg-4">
+   <img
+      src="./images/studentproject.png"
+      class="img-fluid project-img mb-3 float-img"
+      alt="Student Projects">
+<h2>Student Projects</h2>
+<p>IEEE & real-time projects</p>
+<p><a class="btn btn-secondary">View details »</a></p>
+</div>
+
+<div class="col-lg-4">
+  <img
+      src="./images/workshop.png"
+      class="img-fluid project-img mb-3 float-img"
+      alt="Student Projects">
+<h2>Workshops</h2>
+<p>Hands-on practical sessions</p>
+<p><a class="btn btn-secondary">View details »</a></p>
+</div>
+
+<div class="col-lg-4">
+  <img
+      src="./images/training.png"
+      class="img-fluid project-img mb-3 float-img"
+      alt="Student Projects">
+<h2>Training</h2>
+<p>Job-oriented skill programs</p>
+<p><a class="btn btn-secondary">View details »</a></p>
+</div>
+</div>
+
+<!-- ROW 2 (ADDED) -->
+<div class="row text-center mt-5">
+<div class="col-lg-4">
+ <img
+      src="./images/robotics.png"
+      class="img-fluid project-img mb-3 float-img"
+      alt="Student Projects">
+<h2>Robotics</h2>
+<p>Automation & robotics kits</p>
+<p><a class="btn btn-secondary">View details »</a></p>
+</div>
+
+<div class="col-lg-4">
+ <img
+      src="./images/iot.png"
+      class="img-fluid project-img mb-3 float-img"
+      alt="Student Projects">
+<h2>IoT Labs</h2>
+<p>Cloud connected devices</p>
+<p><a class="btn btn-secondary">View details »</a></p>
+</div>
+
+<div class="col-lg-4">
+<img
+      src="./images/ai.png"
+      class="img-fluid project-img mb-3 float-img"
+      alt="Student Projects">
+<h2>AI Vision</h2>
+<p>Computer vision solutions</p>
+<p><a class="btn btn-secondary">View details »</a></p>
+</div>
+</div>
+<div id="feature">
+<hr class="featurette-divider">
+
+<!-- FEATURETTE 1 -->
+<div class="row featurette">
+<div class="col-md-7">
+<h2>Final Year Projects</h2>
+<p class="lead">Complete documentation & demo support</p>
+</div>
+<div class="col-md-5">
+<img class="img-fluid reveal" src="./images/finalproject.png">
+</div>
+</div>
+
+<hr class="featurette-divider">
+
+<!-- FEATURETTE 2 -->
+<div class="row featurette">
+<div class="col-md-7 order-md-2">
+<h2>Industry Exposure</h2>
+<p class="lead">Real-time industrial approach</p>
+</div>
+<div class="col-md-5 order-md-1">
+<img class="img-fluid reveal" src="./images/industrial.jfif">
+</div>
+</div>
+
+<hr class="featurette-divider">
+
+<!-- FEATURETTE 3 -->
+<div class="row featurette">
+<div class="col-md-7">
+<h2>Expert Mentorship</h2>
+<p class="lead">Guidance from experienced engineers</p>
+</div>
+<div class="col-md-5">
+<img class="img-fluid reveal" src="./images/mentoring.jpg">
+</div>
+</div>
+</div>
+<hr class="featurette-divider">
+
+<section id="contact" class="section-padding bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Get In Touch</h2>
+      <p class="text-muted">
+        Our team is available to provide prompt and helpful responses to all inquiries.
+      </p>
+      <hr class="w-25 mx-auto">
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+          <div class="row g-0">
+            
+            <div class="col-md-6 p-5 bg-primary text-white">
+              <h3 class="fw-bold mb-4">Contact Information</h3>
+              
+              <div class="d-flex mb-4">
+                <div class="fs-4 me-3">📍</div>
+                <div>
+                  <h6 class="fw-bold mb-1">Our Address</h6>
+                  <p class="mb-0">Rampally, Nagaram,<br>Hyderabad, Pin: 501301</p>
+                </div>
+              </div>
+
+              <div class="d-flex mb-4">
+                <div class="fs-4 me-3">📞</div>
+                <div>
+                  <h6 class="fw-bold mb-1">Phone Number</h6>
+                  <p class="mb-0">+91 9966552804</p>
+                </div>
+              </div>
+
+              <div class="d-flex">
+                <div class="fs-4 me-3">✉️</div>
+                <div>
+                  <h6 class="fw-bold mb-1">Email Address</h6>
+                  <p class="mb-0 text-break">support@esratechnologies.in</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 p-5 bg-white">
+              <h3 class="fw-bold mb-4 text-dark">Business Hours</h3>
+              <p class="text-muted mb-4">We are committed to helping you during our operational hours. Feel free to drop by or give us a call.</p>
+              
+              <div class="list-group list-group-flush">
+                <div class="list-group-item d-flex justify-content-between align-items-center border-0 px-0">
+                  <span class="fw-bold">Monday - Friday</span>
+                  <span class="badge bg-soft-primary text-primary rounded-pill">9:00 AM - 5:00 PM</span>
+                </div>
+                <div class="list-group-item d-flex justify-content-between align-items-center border-0 px-0">
+                  <span class="fw-bold">Saturday - Sunday</span>
+                  <span class="badge bg-soft-primary text-primary rounded-pill">9:00 AM - 2:00 PM</span>
+                </div>
+              </div>
+
+              <div class="mt-5">
+                <p class="small text-muted italic">* Response times may vary during public holidays.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Floating Help Button -->
+<div class="help-float">
+    <button class="btn btn-primary help-btn"
+            data-bs-toggle="modal"
+            data-bs-target="#helpModal">
+
+        <div class="help-text">
+            <div>New Idea?</div>
+            <div><small>Need Help? Email Us</small></div>
+        </div>
+
+        <div class="robot-icon">🤖</div>
+
+    </button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="helpModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title">How Can We Help?</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body text-center">
+                <p>Have a new idea or need support?</p>
+               <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ask@esratechnologies.in&su=Need Help&body=Hi, I have a new idea."
+   target="_blank"
+   class="btn btn-outline-primary">
+   📧 Email Support (ask@esratechnologies.in)
+</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<footer class="text-center py-3 bg-black text-dark">
+© 2026 Esra Technologies
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+setInterval(()=>{
+document.querySelectorAll('.featurette img')
+.forEach(img=>img.classList.toggle('move'));
+},2000);
+</script>
+<script>
+/* Scroll reveal animation */
+window.addEventListener("scroll", revealOnScroll);
+
+function revealOnScroll() {
+  const reveals = document.querySelectorAll(".reveal");
+  reveals.forEach(el => {
+    const windowHeight = window.innerHeight;
+    const elementTop = el.getBoundingClientRect().top;
+    const revealPoint = 120;
+
+    if (elementTop < windowHeight - revealPoint) {
+      el.classList.add("active");
+    }
+  });
+}
+
+/* Auto run on load */
+revealOnScroll();
+
+/* Carousel text animation */
+const captions = document.querySelectorAll(".carousel-caption");
+captions.forEach(caption => {
+  caption.style.animation = "fadeSlide 1.2s ease forwards";
+});
+
+</script>
+
+</body>
+</html>
