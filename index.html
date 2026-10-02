@@ -12,6 +12,7 @@
         height:2000px;
     }
 
+
     /* Floating Container */
     .help-float {
         position: fixed;
@@ -98,7 +99,6 @@
 .featurette img{transition:transform 1s ease,opacity 1s}
 .featurette img.move{transform:scale(1.05);opacity:.9}
 
-<style>
 /* Smooth card hover */
 .card {
   transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -146,7 +146,42 @@
   display: block;
   Left:100px;
 }
-</style>
+
+/* Container fixed to right */
+.marker-container {
+  position: fixed;
+  top: 150px;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 9999;
+}
+
+/* Individual marker */
+.marker {
+  width: 200px;
+  padding: 12px 15px;
+  background: #ffcc00;
+  color: #000;
+  border-radius: 8px 0 0 8px;
+  box-shadow: -3px 3px 8px rgba(0,0,0,0.3);
+  transform: translateX(140px);   /* hide partially */
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Hover slide effect */
+.marker:hover {
+  transform: translateX(0);
+}
+
+/* Different colors */
+.marker:nth-child(2) { background: #00c2cb; }
+.marker:nth-child(3) { background: #ff6f91; }
+.marker:nth-child(4) { background: #6a67ce; color: white; }
+.marker:nth-child(5) { background: #4caf50; color: white; }
 
 
 </style>
@@ -155,27 +190,10 @@
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-<div class="container">
-
-<a class="navbar-brand" href="#">Esra Technologies</a>
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-<span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarNav">
-<ul class="navbar-nav ms-auto">
-<li class="nav-item"><a class="nav-link" href="#myCarousel">Home</a></li>
-<li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-<li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-<li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-<li class="nav-item"><a class="nav-link" href="./projects.html">List</a></li>
-<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-
-
-</ul>
-</div>
-</div>
-</nav>
+<iframe src="navbar.html"
+        style="width:100%; height:50px; border:none;
+               position:fixed; top:0; left:0; z-index:9999;">
+</iframe>
 
 <!-- CAROUSEL -->
 <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
@@ -291,9 +309,10 @@ Robotics, IoT and AI.
       src="./images/studentproject.png"
       class="img-fluid project-img mb-3 float-img"
       alt="Student Projects">
+
 <h2>Student Projects</h2>
 <p>IEEE & real-time projects</p>
-<p><a class="btn btn-secondary">View details »</a></p>
+<p><a class="btn btn-secondary"  href="./final-year-projects-ECE">View details »</a></p>
 </div>
 
 <div class="col-lg-4">
@@ -499,7 +518,13 @@ Robotics, IoT and AI.
         </div>
     </div>
 </div>
-
+<div class="marker-container">
+  <div class="marker">📌 Low Cost</div>
+  <div class="marker">📊 100% Output</div>
+  <div class="marker">💡 Latest Tech</div>
+  <div class="marker">📅 On-time delivery</div>
+  <div class="marker">⚙ Training</div>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <footer class="text-center py-3 bg-black text-dark">

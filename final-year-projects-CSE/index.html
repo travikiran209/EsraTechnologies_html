@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Projects | Esra Technologies</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body {
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+              url('https://picsum.photos/1920/1080?tech');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+}
+body {
+  padding-top: 60px;
+}
+
+.table-card { background:rgba(255,255,255,0.95); border-radius:12px; padding:5px; }
+.pagination button { margin:0 3px; }
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<iframe src="../navbar.html"
+        style="width:100%; height:50px; border:none;
+               position:fixed; top:0; left:0; z-index:9999;">
+</iframe>
+<!-- CONTENT -->
+<div class="container page-wrap">
+<iframe src="../project-nav.html?page=cse"
+        style="width:100%;  height:60px; border:none;">
+</iframe>
+<div class="table-card shadow-lg">
+<h2 class="mb-1 text-center">CSE Projects</h2>
+
+<!-- Search + Filter -->
+<div class="row mb-3">
+<div class="col-md-6">
+<input type="text" id="searchInput" class="form-control" placeholder="Search projects...">
+</div>
+
+<div class="col-md-3">
+<select id="categoryFilter" class="form-select">
+<option value="">All Categories</option>
+</select>
+</div>
+
+<div class="col-md-2">
+<button class="btn btn-outline-secondary w-100" onclick="clearFilters()">Clear</button>
+</div>
+</div>
+
+<!-- TABLE -->
+<div class="table-responsive">
+<table class="table table-bordered table-hover align-middle">
+<thead class="table-dark">
+<tr>
+<th>ID</th>
+<th>Project Name</th>
+<th>Category</th>
+<th>Technology</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody id="tableBody"></tbody>
+</table>
+</div>
+
+<!-- PAGINATION -->
+<div class="d-flex justify-content-center pagination" id="pagination"></div>
+
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- DATA FILE -->
+<script src="data.js"></script>
+
+<script>
+let data = [];
+let currentPage = 1;
+const rowsPerPage = 40;
+
+document.addEventListener('DOMContentLoaded', () => {
+  data = PROJECT_DATA.map(p => ({ ...p, status: "Available" }));
+    populateCategories(); 
+  renderTable();
+});
+
+document.getElementById('searchInput').addEventListener('input', () => {
+  currentPage = 1;
+  renderTable();
+});
+
+document.getElementById('categoryFilter').addEventListener('change', () => {
+  currentPage = 1;
+  renderTable();
+});
+
+function clearFilters() {
+  document.getElementById('searchInput').value = '';
+  document.getElementById('categoryFilter').value = '';
+  currentPage = 1;
+  renderTable();
+}
+
+function renderTable() {
+  const tbody = document.getElementById('tableBody');
+  tbody.innerHTML = '';
+
+  const filtered = getFilteredData();
+
+  if (filtered.length === 0) {
+    tbody.innerHTML = `
+      <tr>
+        <td colspan="5" class="text-center text-muted">No data found</td>
+      </tr>`;
+    renderPagination(0);
+    return;
+  }
+
+  const start = (currentPage - 1) * rowsPerPage;
+  const pageData = filtered.slice(start, start + rowsPerPage);
+
+  pageData.forEach(row => {
+    tbody.innerHTML += `
+      <tr>
+        <td>${row.id}</td>
+        <td>${row.name}</td>
+        <td>${row.category}</td>
+        <td>${row.technology}</td>
+        <td><span class="badge bg-success">${row.status}</span></td>
+      </tr>`;
+  });
+
+  renderPagination(filtered.length);
+}
+
+function renderPagination(totalRows) {
+  const pages = Math.ceil(totalRows / rowsPerPage);
+  const pagination = document.getElementById('pagination');
+  pagination.innerHTML = '';
+
+  for (let i = 1; i <= pages; i++) {
+    pagination.innerHTML += `
+      <button class="btn btn-sm ${i === currentPage ? 'btn-dark' : 'btn-outline-dark'}"
+      onclick="currentPage=${i};renderTable()">
+      ${i}
+      </button>`;
+  }
+}
+
+function getFilteredData() {
+  const search = document.getElementById('searchInput').value.toLowerCase();
+  const category = document.getElementById('categoryFilter').value;
+
+  return data.filter(item => {
+    const matchesSearch =
+      !search ||
+      item.name.toLowerCase().includes(search) ||
+      item.technology.toLowerCase().includes(search);
+
+    const matchesCategory =
+      !category || item.category === category;
+
+    return matchesSearch && matchesCategory;
+  });
+}
+function populateCategories() {
+  const categorySelect = document.getElementById('categoryFilter');
+  categorySelect.innerHTML = '<option value="">All Categories</option>';
+
+  const uniqueCategories = [...new Set(data.map(item => item.category).filter(Boolean))].sort();
+
+  uniqueCategories.forEach(category => {
+    const option = document.createElement('option');
+    option.value = category;
+    option.textContent = category;
+    categorySelect.appendChild(option);
+  });
+}
+</script>
+
+</body>
+</html>

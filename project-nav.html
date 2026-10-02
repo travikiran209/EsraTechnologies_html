@@ -1,0 +1,41 @@
+  <base target="_parent">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+<ul class="nav nav-pills nav-fill bg-light p-2 rounded shadow-sm">
+
+  <li class="nav-item">
+    <a class="nav-link" href="final-year-projects-ECE" data-page="ece">ECE Projects</a>
+  </li>
+ <li class="nav-item">
+    <a class="nav-link" href="./final-year-projects-EEE" data-page="eee">EEE Projects</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="final-year-projects-CSE" data-page="cse">CSE Projects</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="final-year-projects-MECH" data-page="mech">MECH Projects</a>
+  </li>
+   <li class="nav-item">
+    <a class="nav-link" href="final-year-projects-IOT" data-page="iot">IOT Projects</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="final-year-projects-AI" data-page="ai">AI Projects</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="final-year-projects-Robotics" data-page="robo">Robotics</a>
+  </li>
+</ul>
+
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const activePage = params.get("page");
+  document.querySelectorAll(".nav-link").forEach(link => {
+    if (link.dataset.page === activePage) {
+      link.classList.add("active");
+    }
+  });
+</script>
